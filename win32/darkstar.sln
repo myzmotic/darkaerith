@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DSGame-server", "vcxproj\DS
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DSSearch-server", "vcxproj\DSSearch-server.vcxproj", "{5C763F9B-F332-434F-9EE6-B64B15E1E520}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project Directory", "..\Project-Directory.vcxproj", "{FFADFEDA-A32F-4B52-93C0-F9BAC235C850}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -41,6 +43,14 @@ Global
 		{5C763F9B-F332-434F-9EE6-B64B15E1E520}.Release|Win32.Build.0 = Release|Win32
 		{5C763F9B-F332-434F-9EE6-B64B15E1E520}.Release|x64.ActiveCfg = Release|x64
 		{5C763F9B-F332-434F-9EE6-B64B15E1E520}.Release|x64.Build.0 = Release|x64
+		{FFADFEDA-A32F-4B52-93C0-F9BAC235C850}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FFADFEDA-A32F-4B52-93C0-F9BAC235C850}.Debug|Win32.Build.0 = Debug|Win32
+		{FFADFEDA-A32F-4B52-93C0-F9BAC235C850}.Debug|x64.ActiveCfg = Debug|x64
+		{FFADFEDA-A32F-4B52-93C0-F9BAC235C850}.Debug|x64.Build.0 = Debug|x64
+		{FFADFEDA-A32F-4B52-93C0-F9BAC235C850}.Release|Win32.ActiveCfg = Release|Win32
+		{FFADFEDA-A32F-4B52-93C0-F9BAC235C850}.Release|Win32.Build.0 = Release|Win32
+		{FFADFEDA-A32F-4B52-93C0-F9BAC235C850}.Release|x64.ActiveCfg = Release|x64
+		{FFADFEDA-A32F-4B52-93C0-F9BAC235C850}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
