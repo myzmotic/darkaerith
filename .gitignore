@@ -162,7 +162,7 @@ log/DSP.leaks
 /win32/.vs/darkstar/v15
 
 # Configuration files
-/conf/login_darkstar.conf
-/conf/search_server.conf
-/conf/map_darkstar.conf
-
+conf/login_darkstar.conf
+conf/map_darkstar.conf
+conf/search_server.conf
+win32/darkstar.sln
