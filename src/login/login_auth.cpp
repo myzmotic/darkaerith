@@ -120,13 +120,14 @@ int32 login_parse(int32 fd)
             do_close_login(sd, fd);
             return 0;
         case LOGIN_ATTEMPT:
-            fmtQuery = "SELECT accounts.id,accounts.status \
+        {
+            const char* fmtQuery = "SELECT accounts.id,accounts.status \
                                     FROM accounts \
                                     WHERE accounts.login = '%s' AND accounts.password = PASSWORD('%s')";
             Sql_EscapeString(SqlHandle, escaped_name, name.c_str());
             Sql_EscapeString(SqlHandle, escaped_pass, password.c_str());
-            ret = Sql_Query(SqlHandle, fmtQuery, escaped_name, escaped_pass);
-            if (ret != SQL_ERROR  && Sql_NumRows(SqlHandle) != 0)
+            int32 ret = Sql_Query(SqlHandle, fmtQuery, escaped_name, escaped_pass);
+            if (ret != SQL_ERROR && Sql_NumRows(SqlHandle) != 0)
             {
                 ret = Sql_NextRow(SqlHandle);
 
@@ -153,7 +154,7 @@ int32 login_parse(int32 fd)
                                 ON accounts_sessions.accid = accounts.id \
                                 WHERE accounts.id = %d;";
                     ret = Sql_Query(SqlHandle, fmtQuery, sd->accid);
-                    if (ret != SQL_ERROR  && Sql_NumRows(SqlHandle) == 1)
+                    if (ret != SQL_ERROR && Sql_NumRows(SqlHandle) == 1)
                     {
                         while (Sql_NextRow(SqlHandle) == SQL_SUCCESS)
                         {
@@ -173,10 +174,9 @@ int32 login_parse(int32 fd)
                     memset(&session[fd]->wdata[0], 0, 33);
                     session[fd]->wdata.resize(33);
                     ref<uint8>(session[fd]->wdata.data(), 0) = SUCCESS_LOGIN;
-                    ref<uint16>(session[fd]->wdata.data(), 16) = sd->accid;
+                    ref<uint32>(session[fd]->wdata.data(), 1) = sd->accid;
                     flush_fifo(fd);
                     do_close_tcp(fd);
-                    do_close_login(sd, fd);
                 }
                 else if (status & ACCST_BANNED)
                 {
@@ -219,7 +219,9 @@ int32 login_parse(int32 fd)
                 session[fd]->wdata.resize(1);
                 ref<uint8>(session[fd]->wdata.data(), 0) = ERROR_LOGIN;
                 ShowWarning("login_parse: unexisting user" CL_WHITE"<%s>" CL_RESET" tried to connect\n", escaped_name);
+                do_close_login(sd, fd);
             }
+        }
         break;
         case LOGIN_CREATE:
             //looking for same login
