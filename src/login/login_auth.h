@@ -31,15 +31,33 @@
 /*==========================================
 * Login-Server data parse
 *-------------------------------------------*/
-/*main events*/
 #define LOGIN_ATTEMPT      0x10
 #define LOGIN_CREATE       0x20
-/*return result*/
-#define LOGIN_SUCCESS          0x01
-#define LOGIN_SUCCESS_CREATE   0x03
+#define LOGIN_EMAIL        0x30
+#define LOGIN_PASS         0x40
+#define LOGIN_SEC_CODE	   0x50
+#define LOGIN_RECOVER      0x60
+#define LOGIN_SQATTEMPT    0x70
 
-#define LOGIN_ERROR            0x02
-#define LOGIN_ERROR_CREATE     0x04
+#define SUCCESS_LOGIN      0x01
+#define SUCCESS_CREATE     0x02
+#define SUCCESS_EMAIL      0x03
+#define SUCCESS_PASS       0x04
+#define SUCCESS_SEC_CODE   0x05
+
+#define ERROR_LOGIN        0x06
+#define ERROR_CREATE       0x07
+#define ERROR_EMAIL        0x08
+#define ERROR_PASS         0x09
+#define ERROR_SEC_CODE	   0x10
+
+#define SUCCESS_USERFOUND  0x11
+#define ERROR_USERFOUND    0x12
+
+#define SUCCESS_SQCHANGED  0x13
+#define ERROR_SQFAILED     0x14
+
+#define SHUTDOWN           0x15
 
 extern int32 login_fd;
 /*
@@ -52,6 +70,7 @@ int32 connect_client_login(int32 listenfd);
 int32 login_parse(int32 fd);
 
 bool check_string(std::string const& str, std::size_t max_length);
+uint8 verify_login(login_session_data_t* sd, std::string name, std::string password);
 
 /*=============================================
 * login data close socket

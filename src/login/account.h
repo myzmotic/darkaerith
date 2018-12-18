@@ -34,6 +34,7 @@
 //
 #define ACCST_NORMAL 0x01
 #define ACCST_BANNED 0x02
+#define ACCST_FAILED 0x03
 
 //*
 /*

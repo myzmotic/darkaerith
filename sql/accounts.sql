@@ -39,5 +39,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `features` tinyint(2) UNSIGNED NOT NULL DEFAULT '13',
   `status` tinyint(3) unsigned NOT NULL DEFAULT '1',
   `priv` tinyint(3) unsigned NOT NULL DEFAULT '1',
+  `sqid` tinyint(3) unsigned NOT NULL DEFAULT '1',
+  `sqa` varchar(64) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
