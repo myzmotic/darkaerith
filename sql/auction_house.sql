@@ -7,6 +7,11 @@
 -- Version du serveur: 6.0.0
 -- Version de PHP: 5.2.9-2
 
+-- Server: localhost
+-- Generated on: Sat, December 24, 2011 at 14:06
+--Server version: 6.0.0
+--PHP Version: 5.2.9-2
+
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 
@@ -17,13 +22,14 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
 -- Base de données: `dspdb`
+-- Database: dspdb
 --
 
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `auction_house`
---
+-- Table structure: auction_house
 
 DROP TABLE IF EXISTS `auction_house`;
 CREATE TABLE IF NOT EXISTS `auction_house` (
@@ -44,5 +50,6 @@ CREATE TABLE IF NOT EXISTS `auction_house` (
 
 --
 -- Contenu de la table `auction_house`
+-- Contents of the table
 --
 
